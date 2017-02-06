@@ -16,7 +16,8 @@ and open the template in the editor.
         <tr>
             <td>
                 <h3>Rectangle Calculator</h3>
-                <form id="rectangleForm" name="rectangleForm" method="post" action="rectangle">
+                <form id="rectangleForm" name="rectangleForm" method="post" action="calculate">
+                    <input type="hidden" name="calculatorType" value="rectangle" />
                     <table id="rectangleTable">
                         <tr>
                             <td style="text-align:center;">
@@ -43,7 +44,8 @@ and open the template in the editor.
             </td>
             <td>
                 <h3>Circle Calculator</h3>
-                <form id="circleForm" name="circleForm" method="post" action="circle">
+                <form id="circleForm" name="circleForm" method="post" action="calculate">
+                    <input type="hidden" name="calculatorType" value="circle" />
                     <table id="circleTable">
                         <tr>
                             <td style="border: 2px solid black; width: calc(3 * 20px); height: calc(3 * 20px); border-radius: 30px;">
@@ -65,7 +67,8 @@ and open the template in the editor.
             </td>
             <td>
                 <h3>Triangle Calculator</h3>
-                <form id="triangleForm" name="triangleForm" method="post" action="triangle">
+                <form id="triangleForm" name="triangleForm" method="post" action="calculate">
+                    <input type="hidden" name="calculatorType" value="triangle" />
                     <table id="triangleTable">
                         <tr>
                             <td>

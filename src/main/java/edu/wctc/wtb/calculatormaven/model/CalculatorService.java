@@ -39,7 +39,7 @@ public class CalculatorService {
         return Math.PI * Math.pow(s, 2);
     }
     
-    public double getTriangleArea(String l, String w){
+    public double getTriangleHypotenuse(String l, String w){
         double length = 0;
         double width = 0;
         try {

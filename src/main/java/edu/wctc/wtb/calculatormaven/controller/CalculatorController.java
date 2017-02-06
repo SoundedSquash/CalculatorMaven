@@ -20,12 +20,19 @@ import edu.wctc.wtb.calculatormaven.model.CalculatorService;
  *
  * @author kanst_000
  */
-@WebServlet(name = "CircleController", urlPatterns = {"/circle"})
-public class CircleController extends HttpServlet {
-private static final String RESULT_PAGE = "circle.jsp";
+@WebServlet(name = "CalculatorController", urlPatterns = {"/calculate"})
+public class CalculatorController extends HttpServlet {
+private static final String CALCULATOR_TYPE = "calculatorType";
+//Rectangle vars
+private static final String LENGTH = "length";
+private static final String WIDTH = "width";
+private static final String AREA = "area";
+//Circle vars
 private static final String TYPE = "type";
 private static final String SIZE = "size";
-private static final String AREA = "area";
+//Triangle vars
+private static final String BASE = "base";
+private static final String HEIGHT = "height";
 private static final String DECIMAL_FORMAT = "0.####";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,20 +47,51 @@ private static final String DECIMAL_FORMAT = "0.####";
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try {
-            /* TODO output your page here. You may use following sample code. */
-            String type = request.getParameter(TYPE);
-            String size = request.getParameter(SIZE);
-            
+            String calculatorType = request.getParameter(CALCULATOR_TYPE);
             CalculatorService rs = new CalculatorService();
             DecimalFormat df = new DecimalFormat(DECIMAL_FORMAT);
-            double area = rs.getCircleArea(type, size);
-            size = df.format(rs.getCircleRadius(type, size));
-            request.setAttribute(TYPE, type);
-            request.setAttribute(SIZE, size);
+            
+            String resultPage;
+            double area;
+            switch (calculatorType){
+                case "rectangle":
+                    String length = request.getParameter(LENGTH);
+            String width = request.getParameter(WIDTH);
+            
+            area = rs.getRectangleArea(length, width);
+            request.setAttribute(LENGTH, length);
+            request.setAttribute(WIDTH, width);
             request.setAttribute(AREA, df.format(area));
+            resultPage = "rectangle.jsp";
+            break;
+                case "circle":
+                    String type = request.getParameter(TYPE);
+                    String size = request.getParameter(SIZE);
+                    
+                    area = rs.getCircleArea(type, size);
+                    size = df.format(rs.getCircleRadius(type, size));
+                    request.setAttribute(TYPE, type);
+                    request.setAttribute(SIZE, size);
+                    request.setAttribute(AREA, df.format(area));
+            resultPage = "circle.jsp";
+            break;
+                case "triangle":
+                    String base = request.getParameter(BASE);
+            String height = request.getParameter(HEIGHT);
+            
+            area = rs.getTriangleHypotenuse(base, height);
+            request.setAttribute(BASE, base);
+            request.setAttribute(HEIGHT, height);
+            request.setAttribute(AREA, df.format(area));
+            resultPage = "triangle.jsp";
+            break;
+                default:
+                    resultPage = "index.html";
+            }
+            /* TODO output your page here. You may use following sample code. */
             
             RequestDispatcher view =
-                request.getRequestDispatcher(RESULT_PAGE);
+                request.getRequestDispatcher(resultPage);
         view.forward(request, response);
         } catch(IOException | NumberFormatException | ServletException e){
             out.print(e);

@@ -15,7 +15,7 @@
         <h1>Triangle Calculator</h1>
         <p><a href="index.html">Find the area of another shape</a>.</p>
         <h2>√<span style="border-top:1px solid black;">${height}<sup>2</sup> * ${base}<sup>2</sup></span> = ${area}</h2>
-        <h3>√<span style="border-top:1px solid black;">H<sup>2</sup> * L<sup>2</sup></span> = A</h3>
+        <h3>√<span style="border-top:1px solid black;">H<sup>2</sup> * B<sup>2</sup></span> = A</h3>
         <table>
             <tr>
                 <td>
