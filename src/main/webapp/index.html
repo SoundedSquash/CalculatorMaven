@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html style="padding:2%;">
+    <head>
+        <title>Calculator Lab</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Calculator Lab</h1>
+    <table id="calculatorTable">
+        <tr>
+            <td>
+                <h3>Rectangle Calculator</h3>
+                <form id="rectangleForm" name="rectangleForm" method="post" action="rectangle">
+                    <table id="rectangleTable">
+                        <tr>
+                            <td style="text-align:center;">
+                                <label for="length">L:</label>
+                                <input id="length" name="length" type="number" step="any" min="0" style="width: 4em;">
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 2px solid black; width: calc(6 * 20px); height: calc(3 * 20px);">
+
+                            </td>
+                            <td>
+                                <label>W:</label>
+                                <input id="width" name="width" type="number" step="any" min="0" style="width: 4em;">
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
+                    <button type="submit" id="rectangleSubmit" name="rectangleSubmit">Calculate</button>
+                </form>
+            </td>
+            <td>
+                <h3>Circle Calculator</h3>
+                <form id="circleForm" name="circleForm" method="post" action="circle">
+                    <table id="circleTable">
+                        <tr>
+                            <td style="border: 2px solid black; width: calc(3 * 20px); height: calc(3 * 20px); border-radius: 30px;">
+
+                            </td>
+                            <td style="text-align:center;">
+                                <label for="type">Size:</label>
+                                <select id="type" name="type">
+                                    <option value="radius" selected="selected">Radius</option>
+                                    <option value="diameter">Diameter</option>
+                                </select>
+                                <input id="size" name="size" type="number" step="any" min="0" style="width: 4em;">
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
+                    <button type="submit" id="circleSubmit" name="circleSubmit">Calculate</button>
+                </form>
+            </td>
+            <td>
+                <h3>Triangle Calculator</h3>
+                <form id="triangleForm" name="triangleForm" method="post" action="triangle">
+                    <table id="triangleTable">
+                        <tr>
+                            <td>
+                                <p style="width: 0; height: 0;text-indent: -9999px;border-bottom: 100px solid black;border-left: 100px solid transparent;"></p>
+                            </td>
+                            <td>
+                                <label for="height">Height:</label>
+                                <input id="height" name="height" type="number" step="any" min="0" style="width: 4em;">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;">
+                                <label for="base">Base: </label>
+                                <input id="base" name="base" type="number" step="any" min="0" style="width: 4em;">
+                            </td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <br>
+                    <button type="submit" id="triangleSubmit" name="triangleSubmit">Calculate</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+    </body>
+</html>
